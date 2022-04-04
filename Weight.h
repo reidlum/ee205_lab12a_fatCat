@@ -32,9 +32,15 @@ public:
     static float fromPoundToSlug(float pound) noexcept;
     static float convertWeight(float fromWeight, UnitOfWeight fromUnit, UnitOfWeight toUnit) noexcept;
 
-
     //Public Member Functions
     Weight() noexcept;
+    Weight(float newWeight);
+    Weight(const UnitOfWeight newUnitOfWeight) noexcept;
+    Weight(float newWeight, const UnitOfWeight newUnitOfWeight);
+    Weight(float newWeight, float newMaxWeight);
+    Weight(const UnitOfWeight newUnitOfWeight, float newMaxWeight);
+    Weight(float newWeight, const UnitOfWeight newUnitOfWeight, float newMaxWeight);
+
 
 
 };
