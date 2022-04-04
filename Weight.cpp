@@ -30,7 +30,19 @@ float Weight::fromPoundToSlug(float pound) noexcept {
     return pound*SLUGS_IN_A_POUND;
 }
 float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Weight::UnitOfWeight toUnit) noexcept {
-    return fromWeight;
+    float commonValue;
+    switch(fromUnit){
+        case POUND : commonValue = fromWeight;
+        case KILO  : commonValue = fromKilogramToPound(fromWeight);
+        case SLUG  : commonValue = fromSlugToPound(fromWeight);
+    }
+    float toValue;
+    switch(toUnit){
+        case POUND : toValue = commonValue;
+        case KILO  : toValue = fromPoundToKilogram(commonValue);
+        case SLUG  : toValue = fromPoundToSlug(commonValue);
+    }
+    return toValue;
 }
 
 
