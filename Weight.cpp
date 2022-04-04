@@ -53,9 +53,3 @@ float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Wei
 
 
 Weight::Weight() noexcept {}
-
-
-
-
-
-
