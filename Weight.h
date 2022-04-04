@@ -25,6 +25,14 @@ public:
     static const std::string KILO_LABEL;
     static const std::string SLUG_LABEL;
 
+    //static public member functions
+    static float fromKilogramToPound(float kilogram) noexcept;
+    static float fromPoundToKilogram(float pound) noexcept;
+    static float fromSlugToPound(float slug) noexcept;
+    static float fromPoundToSlug(float pound) noexcept;
+    static float convertWeight(float fromWeight, UnitOfWeight fromUnit, UnitOfWeight toUnit) noexcept;
+
+
     //Public Member Functions
     Weight() noexcept;
 

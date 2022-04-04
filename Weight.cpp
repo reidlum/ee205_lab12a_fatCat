@@ -17,6 +17,31 @@ const float Weight::SLUGS_IN_A_POUND = 0.031081;
 const std::string Weight::POUND_LABEL = "Pound";
 const std::string Weight::KILO_LABEL = "Kilo";
 const std::string Weight::SLUG_LABEL = "Slug";
+float Weight::fromKilogramToPound(float kilogram) noexcept {
+    return kilogram/KILOS_IN_A_POUND;
+}
+float Weight::fromPoundToKilogram(float pound) noexcept {
+    return pound*KILOS_IN_A_POUND;
+}
+float Weight::fromSlugToPound(float slug) noexcept {
+    return slug/KILOS_IN_A_POUND;
+}
+float Weight::fromPoundToSlug(float pound) noexcept {
+    return pound*SLUGS_IN_A_POUND;
+}
+float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Weight::UnitOfWeight toUnit) noexcept {
+    return fromWeight;
+}
+
+
+
+
+
 
 Weight::Weight() noexcept {}
+
+
+
+
+
 
