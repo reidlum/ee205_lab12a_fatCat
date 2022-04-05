@@ -110,5 +110,10 @@ void Weight::setWeight(float newWeight, Weight::UnitOfWeight weightUnits) {
     throw std::out_of_range("Weight not good");
 }
 
-
+void Weight::setMaxWeight(float newMaxWeight) {
+    if (newMaxWeight > 0) {
+        Weight::maxWeight = newMaxWeight;
+        Weight::bHasMax = true;
+    }
+}
 
