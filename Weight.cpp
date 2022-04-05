@@ -81,7 +81,15 @@ Weight::Weight(float newWeight, const UnitOfWeight newUnitOfWeight) {
 }
 
 Weight::Weight(float newWeight, float newMaxWeight) : Weight(newWeight) {
+    setMaxWeight(newMaxWeight);
+    Weight::unitOfWeight = POUND;
+}
 
+Weight::Weight(const UnitOfWeight newUnitOfWeight, float newMaxWeight) {
+    Weight::unitOfWeight = newUnitOfWeight;
+    setMaxWeight(newMaxWeight);
+    Weight::bIsKnown = false;
+    Weight::weight = UNKNOWN_WEIGHT;
 }
 
 void Weight::setWeight(float newWeight) {
