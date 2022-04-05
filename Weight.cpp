@@ -59,12 +59,26 @@ Weight::Weight() noexcept {
     Weight::maxWeight = UNKNOWN_WEIGHT;
 }
 
-Weight::Weight(float newWeight){
+Weight::Weight(float newWeight) {
     setWeight(newWeight);
     Weight::bIsKnown = true;
     Weight::bHasMax = false;
     Weight::unitOfWeight = POUND;
+    Weight::maxWeight = UNKNOWN_WEIGHT;
+}
+
+Weight::Weight(const UnitOfWeight newUnitOfWeight) noexcept {
+    Weight::bIsKnown = false;
+    Weight::bHasMax = false;
+    Weight::unitOfWeight = newUnitOfWeight;
     Weight::weight = UNKNOWN_WEIGHT;
+    Weight::maxWeight = UNKNOWN_WEIGHT;
+}
+
+Weight::Weight(float newWeight, const UnitOfWeight newUnitOfWeight) : Weight(newWeight) {
+    Weight::bIsKnown = true;
+    Weight::bHasMax = false;
+    Weight::unitOfWeight = newUnitOfWeight;
     Weight::maxWeight = UNKNOWN_WEIGHT;
 }
 
