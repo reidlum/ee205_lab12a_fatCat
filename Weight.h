@@ -17,6 +17,18 @@ public:
     //enum
     enum UnitOfWeight{POUND, KILO, SLUG};
 
+private:
+    //private member function
+    void setMaxWeight(float newMaxWeight);
+
+    //private attributes
+    bool  bIsKnown;
+    bool  bHasMax;
+    enum  UnitOfWeight unitOfWeight;
+    float weight {};
+    float maxWeight {};
+
+public:
     //static public attributes
     static const float UNKNOWN_WEIGHT;
     static const float KILOS_IN_A_POUND;
@@ -56,5 +68,8 @@ public:
     bool operator== (const Weight &rhs_Weight) const;
     bool operator< (const Weight &rhs_Weight) const;
     Weight& operator+= (float rhs_addToWeight);
+
+
+
 
 };

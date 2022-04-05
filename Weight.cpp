@@ -51,5 +51,18 @@ float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Wei
     return toValue;
 }
 
+Weight::Weight() noexcept {
+    Weight::bIsKnown = false;
+    Weight::bHasMax = false;
+    Weight:: unitOfWeight = POUND;
+    Weight::weight = UNKNOWN_WEIGHT;
+    Weight::maxWeight = UNKNOWN_WEIGHT;
+}
 
-Weight::Weight() noexcept {}
+void Weight::setWeight(float newWeight) {
+    Weight::weight = newWeight;
+}
+
+
+
+
