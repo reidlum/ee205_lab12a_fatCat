@@ -54,13 +54,28 @@ float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Wei
 Weight::Weight() noexcept {
     Weight::bIsKnown = false;
     Weight::bHasMax = false;
-    Weight:: unitOfWeight = POUND;
+    Weight::unitOfWeight = POUND;
+    Weight::weight = UNKNOWN_WEIGHT;
+    Weight::maxWeight = UNKNOWN_WEIGHT;
+}
+
+Weight::Weight(float newWeight){
+    setWeight(newWeight);
+    Weight::bIsKnown = true;
+    Weight::bHasMax = false;
+    Weight::unitOfWeight = POUND;
     Weight::weight = UNKNOWN_WEIGHT;
     Weight::maxWeight = UNKNOWN_WEIGHT;
 }
 
 void Weight::setWeight(float newWeight) {
-    Weight::weight = newWeight;
+    if (newWeight > 0 && !bHasMax) {
+        Weight::weight = newWeight;
+    }
+    else if (newWeight > 0 && newWeight <= maxWeight) {
+        Weight::weight = newWeight;
+    }
+    throw std::out_of_range("Weight not good");
 }
 
 
