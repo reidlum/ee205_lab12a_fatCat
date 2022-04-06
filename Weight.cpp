@@ -96,16 +96,27 @@ Weight::Weight(float newWeight, const UnitOfWeight newUnitOfWeight, float newMax
     Weight::unitOfWeight = newUnitOfWeight;
 }
 
+bool Weight::isWeightValid(float checkWeight) const noexcept {
+    if (checkWeight > 0 && !bHasMax) {
+        return true;
+    }
+    else if (checkWeight > 0 && checkWeight <= maxWeight) {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+
 void Weight::setWeight(float newWeight) {
-    if (newWeight > 0 && !bHasMax) {
+    if (isWeightValid(newWeight)) {
         Weight::weight = newWeight;
         Weight::bIsKnown = true;
     }
-    else if (newWeight > 0 && newWeight <= maxWeight) {
-        Weight::weight = newWeight;
-        Weight::bIsKnown = true;
+    else{
+        throw std::out_of_range("Weight not good");
     }
-    throw std::out_of_range("Weight not good");
 }
 
 void Weight::setWeight(float newWeight, Weight::UnitOfWeight weightUnits) {
