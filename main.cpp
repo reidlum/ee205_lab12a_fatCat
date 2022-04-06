@@ -70,15 +70,17 @@ int main() {
     } catch (exception const &e) {}
 
     Weight opWeight1 = Weight(3);
-    bool answer1 = opWeight1 == 3;
+    Weight opWeight2 = Weight(3);
+    bool answer1 = opWeight1 == opWeight2;
     cout<< answer1 << endl;
 /*
     Weight opWeight2 = Weight(2);
     Weight answer2 = opWeight2 += 3;
     cout << answer2.getWeight() << endl;
 */
-    Weight opWeight3 = Weight(3);
-    bool answer3 = opWeight1 < 4;
+    Weight opWeight5 = Weight(5);
+    Weight opWeight6 = Weight(6);
+    bool answer3 = opWeight5 < opWeight6;
     cout<< answer3 << endl;
 
 }
