@@ -49,6 +49,7 @@ int main() {
     //Weight badWeight2 = Weight(-3, Weight::SLUG);
     //Weight badWeight3 = Weight(10, 5);
     //Weight badWeight4 = Weight(Weight::SLUG, -5);
-
+    //Weight badWeight5 = Weight(Weight::SLUG, -5);
+    Weight badWeight5 = Weight(Weight::SLUG, -5);
 
 }

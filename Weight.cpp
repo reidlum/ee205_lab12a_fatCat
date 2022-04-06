@@ -134,7 +134,7 @@ void Weight::setWeight(float newWeight) {
         Weight::bIsKnown = true;
     }
     else{
-        throw std::out_of_range("Weight not good");
+        throw std::out_of_range("Weight must be > 0 and less than max");
     }
 }
 
@@ -145,7 +145,7 @@ void Weight::setWeight(float newWeight, Weight::UnitOfWeight weightUnits) {
         Weight::unitOfWeight = weightUnits;
     }
     else {
-        throw std::out_of_range("Weight not good");
+        throw std::out_of_range("Weight must be > 0 and less than max");
     }
 }
 
@@ -155,7 +155,7 @@ void Weight::setMaxWeight(float newMaxWeight) {
         Weight::bHasMax = true;
     }
     else {
-        throw std::out_of_range("Weight not good");
+        throw std::out_of_range("Max weight must be > 0");
     }
 }
 
