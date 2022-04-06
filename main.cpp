@@ -37,4 +37,12 @@ int main() {
     testWeight5.dump();
     Weight testWeight6 = Weight(6, Weight::SLUG, 10);
     testWeight6.dump();
+    cout << endl;
+
+    //testing misc function
+    cout << testWeight1.getWeight(Weight::SLUG) << endl;
+    cout << testWeight1.getWeight(Weight::KILO) << endl;
+    cout << testWeight6.getWeight(Weight::SLUG) << endl;
+
+    //testing
 }
