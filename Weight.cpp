@@ -196,3 +196,10 @@ void Weight::dump() const noexcept{
     FORMAT_LINE("Weight","hasMax") << hasMaxWeight() << endl;
     FORMAT_LINE("Weight","maxWeight") << getMaxWeight() << endl;
 }
+
+bool Weight::validate() const noexcept {
+    if (weight > 0 && weight < maxWeight && maxWeight > 0) {
+        return true;
+    }
+    return false;
+}

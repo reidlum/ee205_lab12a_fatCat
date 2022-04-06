@@ -44,7 +44,7 @@ int main() {
     cout << testWeight1.getWeight(Weight::KILO) << endl;
     cout << testWeight6.getWeight(Weight::SLUG) << endl;
 
-    //testing errors for constructors
+    //testing errors for constructors... All throw exceptions
     //Weight badWeight1 = Weight(-3);
     //Weight badWeight2 = Weight(-3, Weight::SLUG);
     //Weight badWeight3 = Weight(10, 5);
