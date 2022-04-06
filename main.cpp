@@ -29,12 +29,12 @@ int main() {
     testWeight1.dump();
     Weight testWeight2 = Weight(Weight::KILO);
     testWeight2.dump();
-    Weight testWeight3 = Weight(2);
+    Weight testWeight3 = Weight(3, Weight::SLUG);
     testWeight3.dump();
-    Weight testWeight4 = Weight(7);
+    Weight testWeight4 = Weight(4,10);
     testWeight4.dump();
-    Weight testWeight5 = Weight(7);
+    Weight testWeight5 = Weight(Weight::KILO, 10);
     testWeight5.dump();
-    Weight testWeight6 = Weight(7);
+    Weight testWeight6 = Weight(6, Weight::SLUG, 10);
     testWeight6.dump();
 }
