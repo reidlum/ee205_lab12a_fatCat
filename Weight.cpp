@@ -17,6 +17,18 @@
 #include <stdexcept>
 
 using namespace std;
+
+std::ostream& operator<<( ostream& lhs_stream
+        ,const Weight::UnitOfWeight rhs_UnitOfWeight ) {
+    switch( rhs_UnitOfWeight ) {
+        case Weight::POUND: return lhs_stream << Weight::POUND_LABEL ;
+        case Weight::KILO: return lhs_stream << Weight::KILO_LABEL ;
+        case Weight::SLUG: return lhs_stream << Weight::SLUG_LABEL ;
+        default:
+            throw out_of_range( "The unit can’t be mapped to a string" );
+    }
+}
+/* Old way to convert enums to labels
 const char* unitName(Weight::UnitOfWeight unit)
 {
     switch(unit){
@@ -29,6 +41,7 @@ const char* unitName(Weight::UnitOfWeight unit)
     }
     return "none";
 }
+ */
 const float Weight::UNKNOWN_WEIGHT = -1;
 const float Weight::KILOS_IN_A_POUND = 0.453592;
 const float Weight::SLUGS_IN_A_POUND = 0.031081;
@@ -192,7 +205,7 @@ void Weight::dump() const noexcept{
     FORMAT_LINE("Weight","this") << &weight << endl;
     FORMAT_LINE("Weight","isKnown") << isWeightKnown() << endl;
     FORMAT_LINE("Weight","weight") << getWeight() << endl;
-    FORMAT_LINE("Weight","unitOfWeight") << unitName(getWeightUnit()) << endl;
+    FORMAT_LINE("Weight","unitOfWeight") << getWeightUnit() << endl;
     FORMAT_LINE("Weight","hasMax") << hasMaxWeight() << endl;
     FORMAT_LINE("Weight","maxWeight") << getMaxWeight() << endl;
 }
@@ -203,3 +216,4 @@ bool Weight::validate() const noexcept {
     }
     return false;
 }
+
