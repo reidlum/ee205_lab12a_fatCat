@@ -69,5 +69,6 @@ int main() {
         assert(false);
     } catch (exception const &e) {}
 
-
+    Weight opWeight1 = Weight(3);
+    Weight::operator==(3);
 }

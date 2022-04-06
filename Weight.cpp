@@ -18,6 +18,27 @@
 
 using namespace std;
 
+bool Weight::operator==(const Weight &rhs_Weight) const {
+    float lhs_weight = (bIsKnown) ? getWeight(Weight::POUND) : 0;
+    float rhs_weight = (rhs_Weight.bIsKnown) ?
+                       rhs_Weight.getWeight(Weight::POUND) : 0;
+    return lhs_weight == rhs_weight;
+}
+
+Weight& Weight::operator+=(float rhs_addToWeight) {
+    Weight lhs_weight = (bIsKnown) ? getWeight(Weight::POUND) : 0;
+    return lhs_weight += rhs_addToWeight;
+}
+
+bool Weight::operator<(const Weight &rhs_Weight) const {
+    float lhs_weight = (bIsKnown) ? getWeight(Weight::POUND) : 0;
+    float rhs_weight = (rhs_Weight.bIsKnown) ?
+                       rhs_Weight.getWeight(Weight::POUND) : 0;
+    return lhs_weight < rhs_weight;
+}
+
+
+
 std::ostream& operator<<( ostream& lhs_stream
         ,const Weight::UnitOfWeight rhs_UnitOfWeight ) {
     switch( rhs_UnitOfWeight ) {
@@ -28,6 +49,7 @@ std::ostream& operator<<( ostream& lhs_stream
             throw out_of_range( "The unit can’t be mapped to a string" );
     }
 }
+
 /* Old way to convert enums to labels
 const char* unitName(Weight::UnitOfWeight unit)
 {
@@ -216,4 +238,5 @@ bool Weight::validate() const noexcept {
     }
     return false;
 }
+
 
