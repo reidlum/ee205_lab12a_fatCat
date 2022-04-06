@@ -26,9 +26,8 @@ bool Weight::operator==(const Weight &rhs_Weight) const {
 }
 
 Weight &Weight::operator+=(float rhs_addToWeight) {
-    float lhs_weight = (bIsKnown) ? getWeight(Weight::POUND) : throw out_of_range("Weight isn't known");
-    float newWeight = lhs_weight + rhs_addToWeight;
-    setWeight(newWeight);
+    this->weight += rhs_addToWeight;
+    return *this;
 }
 
 

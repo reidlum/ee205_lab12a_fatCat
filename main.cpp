@@ -77,14 +77,12 @@ int main() {
     bool answer1 = opWeight1 == opWeight2;
     cout<< answer1 << endl;
 
+    Weight opWeight4 = Weight(2);
+    Weight answer2 = opWeight4 += 3;
+    cout << answer2.getWeight() << endl;
+
     Weight opWeight5 = Weight(5);
     Weight opWeight6 = Weight(6);
     bool answer3 = opWeight5 < opWeight6;
     cout<< answer3 << endl;
-
-
-    //Problem with this operator... don't know what to return
-    Weight opWeight4 = Weight(2);
-    Weight answer2 = opWeight4 += 3;
-    cout << answer2.getWeight() << endl;
 }
