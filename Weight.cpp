@@ -98,8 +98,9 @@ Weight::Weight(float newWeight, const Weight::UnitOfWeight newUnitOfWeight) {
     Weight::maxWeight = UNKNOWN_WEIGHT;
 }
 
-Weight::Weight(float newWeight, float newMaxWeight) : Weight(newWeight) {
+Weight::Weight(float newWeight, float newMaxWeight) {
     setMaxWeight(newMaxWeight);
+    setWeight(newWeight);
     Weight::unitOfWeight = POUND;
 }
 
@@ -152,6 +153,9 @@ void Weight::setMaxWeight(float newMaxWeight) {
     if (newMaxWeight > 0) {
         Weight::maxWeight = newMaxWeight;
         Weight::bHasMax = true;
+    }
+    else {
+        throw std::out_of_range("Weight not good");
     }
 }
 
