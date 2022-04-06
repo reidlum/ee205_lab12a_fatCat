@@ -47,36 +47,27 @@ int main() {
     cout << endl;
 
     //testing errors for constructors... All throw exceptions
-    try{
-        Weight badWeight1 = Weight(-3); //tests negative weight
-        assert(false);
-    } catch (exception const &e) {}
+    //Weight badWeight1 = Weight(-3); //tests negative weight
+    //Weight badWeight2 = Weight(-3, Weight::SLUG); //tests negative weight with units
+    //Weight badWeight3 = Weight(10, 5); //tests weight larger than max weight
+    //Weight badWeight4 = Weight(Weight::SLUG, -5); //test negative max weight with units
+    //Weight badWeight5 = Weight(20,Weight::SLUG, 10); //tests weight larger than max weight with units
 
-    try{
-        Weight badWeight2 = Weight(-3, Weight::SLUG); //tests negative weight with units
-        assert(false);
-    } catch (exception const &e) {}
-
-    try{
-        Weight badWeight3 = Weight(10, 5); //tests weight larger than max weight
-        assert(false);
-    } catch (exception const &e) {}
-
-    try{
-        Weight badWeight4 = Weight(Weight::SLUG, -5); //test negative max weight with units
-        assert(false);
-    } catch (exception const &e) {}
-
-    try{
-        Weight badWeight5 = Weight(20,Weight::SLUG, 10); //tests weight larger than max weight with units
-        assert(false);
-    } catch (exception const &e) {}
-
-
-    //testing setWeight with different Units
+    //testing setWeights
     Weight testWeight = Weight(1, Weight::KILO, 100); //sets max to 100 kilos
-    try {
+    try{
         testWeight.setWeight(80, Weight::SLUG); //tries to set weight to 80 slugs (more than 100 kilos)
         assert(false);
-    } catch (exception const &e){}
+    } catch (exception const &e) {}
+    try{
+        testWeight.setWeight(-1);
+        assert(false);
+    } catch (exception const &e) {}
+
+    try{
+        testWeight.setWeight(-1,Weight::KILO);
+        assert(false);
+    } catch (exception const &e) {}
+
+
 }
