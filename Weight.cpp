@@ -24,12 +24,13 @@ bool Weight::operator==(const Weight &rhs_Weight) const {
                        rhs_Weight.getWeight(Weight::POUND) : 0;
     return lhs_weight == rhs_weight;
 }
-/*
-Weight& Weight::operator+=(float rhs_addToWeight) {
-    Weight lhs_weight = (bIsKnown) ? getWeight(Weight::POUND) : 0;
-    return  ;
+
+Weight &Weight::operator+=(float rhs_addToWeight) {
+    float lhs_weight = (bIsKnown) ? getWeight(Weight::POUND) : throw out_of_range("Weight isn't known");
+    float newWeight = lhs_weight + rhs_addToWeight;
+    setWeight(newWeight);
 }
-*/
+
 
 bool Weight::operator<(const Weight &rhs_Weight) const {
     float lhs_weight = (bIsKnown) ? getWeight(Weight::POUND) : 0;
