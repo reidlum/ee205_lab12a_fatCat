@@ -20,5 +20,5 @@ int main() {
     cout << Weight::fromSlugToPound(1) << " " << Weight::convertWeight(1, Weight::SLUG, Weight::POUND) << endl;
     cout << Weight::Weight::fromPoundToSlug(1) << " " << Weight::convertWeight(1, Weight::POUND, Weight::SLUG) << endl;
     cout << endl;
-
+    Weight testWeight = Weight();
 }

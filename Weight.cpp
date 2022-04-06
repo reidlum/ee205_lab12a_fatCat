@@ -10,6 +10,13 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "Weight.h"
+#include <iostream>
+#include <iomanip>
+#include <cassert>
+#include <cstring>
+#include <stdexcept>
+
+using namespace std;
 
 const float Weight::UNKNOWN_WEIGHT = -1;
 const float Weight::KILOS_IN_A_POUND = 0.453592;
@@ -161,4 +168,16 @@ Weight::UnitOfWeight Weight::getWeightUnit() const noexcept {
     return Weight::unitOfWeight;
 }
 
-
+#define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52)
+void Weight::dump() const noexcept{
+    cout << setw(46) << setfill('=') << "" << endl;
+    cout << setfill(' ') ;
+    cout << left ;
+    cout << boolalpha ;
+    //FORMAT_LINE("Weight","this") <<
+    FORMAT_LINE("Weight","isKnown") << isWeightKnown() << endl;
+    FORMAT_LINE("Weight","weight") << getWeight() << endl;
+    FORMAT_LINE("Weight","unitOfWeight") << getWeightUnit() << endl;
+    FORMAT_LINE("Weight","hasMax") << hasMaxWeight() << endl;
+    FORMAT_LINE("Weight","maxWeight") << getMaxWeight() << endl;
+}
