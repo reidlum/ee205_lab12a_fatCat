@@ -70,5 +70,15 @@ int main() {
     } catch (exception const &e) {}
 
     Weight opWeight1 = Weight(3);
-    Weight::operator==(3);
+    bool answer1 = opWeight1 == 3;
+    cout<< answer1 << endl;
+/*
+    Weight opWeight2 = Weight(2);
+    Weight answer2 = opWeight2 += 3;
+    cout << answer2.getWeight() << endl;
+*/
+    Weight opWeight3 = Weight(3);
+    bool answer3 = opWeight1 < 4;
+    cout<< answer3 << endl;
+
 }
