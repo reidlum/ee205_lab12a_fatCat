@@ -174,7 +174,7 @@ void Weight::dump() const noexcept{
     cout << setfill(' ') ;
     cout << left ;
     cout << boolalpha ;
-    //FORMAT_LINE("Weight","this") <<
+    FORMAT_LINE("Weight","this") << &weight << endl;
     FORMAT_LINE("Weight","isKnown") << isWeightKnown() << endl;
     FORMAT_LINE("Weight","weight") << getWeight() << endl;
     FORMAT_LINE("Weight","unitOfWeight") << getWeightUnit() << endl;
