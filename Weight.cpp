@@ -17,7 +17,18 @@
 #include <stdexcept>
 
 using namespace std;
-
+const char* unitName(Weight::UnitOfWeight unit)
+{
+    switch(unit){
+        case 0:
+            return "Pound";
+        case 1:
+            return "Kilo";
+        case 2:
+            return "Slug";
+    }
+    return "none";
+}
 const float Weight::UNKNOWN_WEIGHT = -1;
 const float Weight::KILOS_IN_A_POUND = 0.453592;
 const float Weight::SLUGS_IN_A_POUND = 0.031081;
@@ -177,7 +188,7 @@ void Weight::dump() const noexcept{
     FORMAT_LINE("Weight","this") << &weight << endl;
     FORMAT_LINE("Weight","isKnown") << isWeightKnown() << endl;
     FORMAT_LINE("Weight","weight") << getWeight() << endl;
-    FORMAT_LINE("Weight","unitOfWeight") << getWeightUnit() << endl;
+    FORMAT_LINE("Weight","unitOfWeight") << unitName(getWeightUnit()) << endl;
     FORMAT_LINE("Weight","hasMax") << hasMaxWeight() << endl;
     FORMAT_LINE("Weight","maxWeight") << getMaxWeight() << endl;
 }

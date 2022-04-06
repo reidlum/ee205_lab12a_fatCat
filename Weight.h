@@ -12,6 +12,9 @@
 #include <string>
 #include <ostream>
 
+
+
+
 class Weight {
 public:
     //enum
@@ -71,7 +74,7 @@ public:
     Weight& operator+= (float rhs_addToWeight);
 };
 
-
+extern const char* unitName(Weight::UnitOfWeight unit);
 
 
 
