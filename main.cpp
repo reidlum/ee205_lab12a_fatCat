@@ -40,12 +40,6 @@ int main() {
     testWeight6.dump();
     cout << endl;
 
-    //testing misc function
-    cout << testWeight1.getWeight(Weight::SLUG) << endl;
-    cout << testWeight1.getWeight(Weight::KILO) << endl;
-    cout << testWeight6.getWeight(Weight::SLUG) << endl;
-    cout << endl;
-
     //testing errors for constructors... All throw exceptions
     //Weight badWeight1 = Weight(-3); //tests negative weight
     //Weight badWeight2 = Weight(-3, Weight::SLUG); //tests negative weight with units
@@ -53,7 +47,7 @@ int main() {
     //Weight badWeight4 = Weight(Weight::SLUG, -5); //test negative max weight with units
     //Weight badWeight5 = Weight(20,Weight::SLUG, 10); //tests weight larger than max weight with units
 
-    //testing setWeights
+    //testing setWeights with different units
     Weight testWeight = Weight(1, Weight::KILO, 100); //sets max to 100 kilos
     try{
         testWeight.setWeight(80, Weight::SLUG); //tries to set weight to 80 slugs (more than 100 kilos)
@@ -68,6 +62,15 @@ int main() {
         testWeight.setWeight(-1,Weight::KILO);
         assert(false);
     } catch (exception const &e) {}
+
+    Weight testWeight7 = Weight(Weight::KILO, 10);
+    testWeight7.setWeight(1);
+    testWeight7.dump();
+
+    Weight testWeight8 = Weight(Weight::SLUG);
+    testWeight8.setWeight(1, Weight::KILO);
+    testWeight8.dump();
+
 
     Weight opWeight1 = Weight(3);
     Weight opWeight2 = Weight(3);
