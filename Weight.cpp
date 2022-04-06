@@ -146,13 +146,19 @@ bool Weight::hasMaxWeight() const noexcept {
 }
 
 float Weight::getWeight() const noexcept {
-    return Weight::unitOfWeight;
+    return Weight::weight;
 }
 
 float Weight::getWeight(Weight::UnitOfWeight weightUnits) const noexcept {
     return convertWeight(Weight::weight, Weight::unitOfWeight, weightUnits);
 }
 
+float Weight::getMaxWeight() const noexcept {
+    return Weight::maxWeight;
+}
 
+Weight::UnitOfWeight Weight::getWeightUnit() const noexcept {
+    return Weight::unitOfWeight;
+}
 
 
