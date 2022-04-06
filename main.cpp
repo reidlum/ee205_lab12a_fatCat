@@ -52,6 +52,6 @@ int main() {
     //Weight badWeight5 = Weight(20,Weight::SLUG, 10); //tests weight larger than max weight with units
 
     Weight badWeight = Weight(1, Weight::KILO, 100); //tests weight larger than max weight
-    badWeight.setWeight(2, Weight::SLUG);
+    badWeight.setWeight(80, Weight::SLUG);
     badWeight.dump();
 }
