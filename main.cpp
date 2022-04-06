@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <cassert>
 #include "Weight.h"
 
 using namespace std;
@@ -43,15 +44,39 @@ int main() {
     cout << testWeight1.getWeight(Weight::SLUG) << endl;
     cout << testWeight1.getWeight(Weight::KILO) << endl;
     cout << testWeight6.getWeight(Weight::SLUG) << endl;
+    cout << endl;
 
     //testing errors for constructors... All throw exceptions
-    //Weight badWeight1 = Weight(-3); //tests negative weight
-    //Weight badWeight2 = Weight(-3, Weight::SLUG); //tests negative weight with units
-    //Weight badWeight3 = Weight(10, 5); //tests weight larger than max weight
-    //Weight badWeight4 = Weight(Weight::SLUG, -5); //test negative max weight with units
-    //Weight badWeight5 = Weight(20,Weight::SLUG, 10); //tests weight larger than max weight with units
+    try{
+        Weight badWeight1 = Weight(-3); //tests negative weight
+        assert(false);
+    } catch (exception const &e) {}
 
-    Weight badWeight = Weight(1, Weight::KILO, 100); //tests weight larger than max weight
-    badWeight.setWeight(80, Weight::SLUG);
-    badWeight.dump();
+    try{
+        Weight badWeight2 = Weight(-3, Weight::SLUG); //tests negative weight with units
+        assert(false);
+    } catch (exception const &e) {}
+
+    try{
+        Weight badWeight3 = Weight(10, 5); //tests weight larger than max weight
+        assert(false);
+    } catch (exception const &e) {}
+
+    try{
+        Weight badWeight4 = Weight(Weight::SLUG, -5); //test negative max weight with units
+        assert(false);
+    } catch (exception const &e) {}
+
+    try{
+        Weight badWeight5 = Weight(20,Weight::SLUG, 10); //tests weight larger than max weight with units
+        assert(false);
+    } catch (exception const &e) {}
+
+
+    //testing setWeight with different Units
+    Weight testWeight = Weight(1, Weight::KILO, 100); //sets max to 100 kilos
+    try {
+        testWeight.setWeight(80, Weight::SLUG); //tries to set weight to 80 slugs (more than 100 kilos)
+        assert(false);
+    } catch (exception const &e){}
 }
