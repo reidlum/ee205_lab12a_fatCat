@@ -137,3 +137,22 @@ void Weight::setMaxWeight(float newMaxWeight) {
     }
 }
 
+bool Weight::isWeightKnown() const noexcept {
+    return Weight::bIsKnown;
+}
+
+bool Weight::hasMaxWeight() const noexcept {
+    return Weight::bHasMax;
+}
+
+float Weight::getWeight() const noexcept {
+    return Weight::unitOfWeight;
+}
+
+float Weight::getWeight(Weight::UnitOfWeight weightUnits) const noexcept {
+    return convertWeight(Weight::weight, Weight::unitOfWeight, weightUnits);
+}
+
+
+
+

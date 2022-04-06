@@ -56,11 +56,6 @@ public:
     void setWeight(float newWeight);
     void setWeight(float newWeight, UnitOfWeight weightUnits);
     bool isWeightValid(float checkWeight) const noexcept;
-    bool validate() const noexcept;
-    void dump() const noexcept;
-    bool operator== (const Weight &rhs_Weight) const;
-    bool operator< (const Weight &rhs_Weight) const;
-    Weight& operator+= (float rhs_addToWeight);
 
     bool isWeightKnown() const noexcept;
     bool hasMaxWeight () const noexcept;
@@ -69,7 +64,20 @@ public:
     float getMaxWeight() const noexcept;
     UnitOfWeight getWeightUnit () const noexcept;
 
+    bool validate() const noexcept;
+    void dump() const noexcept;
+    bool operator== (const Weight &rhs_Weight) const;
+    bool operator< (const Weight &rhs_Weight) const;
+    Weight& operator+= (float rhs_addToWeight);
 };
+
+
+
+
+
+
+
+
 
 
 
