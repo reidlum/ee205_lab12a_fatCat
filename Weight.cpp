@@ -120,17 +120,14 @@ void Weight::setWeight(float newWeight) {
 }
 
 void Weight::setWeight(float newWeight, Weight::UnitOfWeight weightUnits) {
-    if (newWeight > 0 && !bHasMax) {
+    if (isWeightValid(newWeight)) {
         Weight::weight = newWeight;
         Weight::bIsKnown = true;
         Weight::unitOfWeight = weightUnits;
     }
-    else if (newWeight > 0 && newWeight <= maxWeight) {
-        Weight::weight = newWeight;
-        Weight::bIsKnown = true;
-        Weight::unitOfWeight = weightUnits;
+    else {
+        throw std::out_of_range("Weight not good");
     }
-    throw std::out_of_range("Weight not good");
 }
 
 void Weight::setMaxWeight(float newMaxWeight) {
