@@ -45,11 +45,13 @@ int main() {
     cout << testWeight6.getWeight(Weight::SLUG) << endl;
 
     //testing errors for constructors... All throw exceptions
-    //Weight badWeight1 = Weight(-3);
-    //Weight badWeight2 = Weight(-3, Weight::SLUG);
-    //Weight badWeight3 = Weight(10, 5);
-    //Weight badWeight4 = Weight(Weight::SLUG, -5);
-    //Weight badWeight5 = Weight(Weight::SLUG, -5);
-    //Weight badWeight5 = Weight(20,Weight::SLUG, 10);
+    //Weight badWeight1 = Weight(-3); //tests negative weight
+    //Weight badWeight2 = Weight(-3, Weight::SLUG); //tests negative weight with units
+    //Weight badWeight3 = Weight(10, 5); //tests weight larger than max weight
+    //Weight badWeight4 = Weight(Weight::SLUG, -5); //test negative max weight with units
+    //Weight badWeight5 = Weight(20,Weight::SLUG, 10); //tests weight larger than max weight with units
 
+    Weight badWeight = Weight(1, Weight::KILO, 100); //tests weight larger than max weight
+    badWeight.setWeight(2, Weight::SLUG);
+    badWeight.dump();
 }

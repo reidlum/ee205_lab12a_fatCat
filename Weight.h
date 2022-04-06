@@ -74,7 +74,7 @@ public:
     Weight& operator+= (float rhs_addToWeight);
 };
 
-extern const char* unitName(Weight::UnitOfWeight unit);
+extern const char* unitName(Weight::UnitOfWeight unit); //changes enum to name of unit
 
 
 

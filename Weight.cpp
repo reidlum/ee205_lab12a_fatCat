@@ -130,7 +130,7 @@ bool Weight::isWeightValid(float checkWeight) const noexcept {
 
 void Weight::setWeight(float newWeight) {
     if (isWeightValid(newWeight)) {
-        Weight::weight = newWeight;
+        Weight::weight = convertWeight(newWeight, Weight::POUND, Weight::unitOfWeight);
         Weight::bIsKnown = true;
     }
     else{
@@ -140,7 +140,7 @@ void Weight::setWeight(float newWeight) {
 
 void Weight::setWeight(float newWeight, Weight::UnitOfWeight weightUnits) {
     if (isWeightValid(newWeight)) {
-        Weight::weight = newWeight;
+        Weight::weight = convertWeight(newWeight, weightUnits, Weight::unitOfWeight);
         Weight::bIsKnown = true;
         Weight::unitOfWeight = weightUnits;
     }
